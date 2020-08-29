@@ -51,8 +51,8 @@
             .table {
                 font-size: 1.1em;
                 border: 2px solid #000;
-                border-collapse:separate; 
-                border-spacing:0 3px;
+                border-collapse:separate;
+                border-spacing: 0 3px;
             }
 
             .table tr th,td {
@@ -91,7 +91,7 @@
         <nav id = "navbar" class="navbar navbar-expand-lg fixed-top">
             <a class="navbar-brand" href="{% url 'index' %}"> <span><img style = "width: 30px; height: 30px;" src="{% static 'img/inv.png' %}" alt="inventory"></span> Inventario</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+              <span class="navbar-toggler-icon" style = "color:brown;">Menu</span>
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -116,14 +116,14 @@
     <body id = "body">
         <div class = "container">
             <div class="row">
-                <h2 id = "heading">Sales Details</h2>
-                <a href = "../pdf/$" class="btn btn-outline ml-auto">Generate PDF</a>
+                <h2 id = "heading" class = "col-7">Sales Details</h2>
+                <a href = "../pdf/$" class="btn btn-outline ml-auto col-4 col-md-2">Generate PDF</a>
             </div>
             <hr style = "background-color: blanchedalmond;">
             <div class="row">
                 {% if messages %}
                     {% for message in messages %}
-                        <div class="alert {{ message.tags }} alert-dismissible" style = "color: red;" role="alert">
+                        <div class="alert {{ message.tags }} alert-dismissible" style = "color: brown; background-color:blanchedalmond;" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -134,20 +134,24 @@
             </div>
 
             <div class="row">
-                <div class="col-12">
+                <div class="table-responsive col-12">
                     <table class="table" border="1">
                         <thead>
-                            <th scope = "col">Invoice Id.</th>
-                            <th scope = "col">Product Sr. No</th>
-                            <th scope = "col">Product Name</th>
-                            <th scope = "col">Quantity Remaining</th>
-                            <th scope = "col">Price (per unit)</th>
-                            <th scope = "col">Total Price.</th>
-                            <th scope = "col">Sale Date</th>
+                            <th>Invoice Id.</th>
+                            <th>Customer Name</th>
+                            <th>Customer Phone</th>
+                            <th>Product Sr. No</th>
+                            <th>Product Name</th>
+                            <th>Quantity Remaining</th>
+                            <th>Price (per unit)</th>
+                            <th>Total Price.</th>
+                            <th>Sale Date</th>
                         </thead>
                         {% for c in cust %}
                             <tbody>
                                 <td id = "serial">{{ c.invoice_id.invoice_id }}</td>
+                                <td>{{ c.invoice_id.cust_name }}</td>
+                                <td>{{ c.invoice_id.cust_phone }}</td>
                                 <td id = "serial">{{ c.product_sr_no }}</td>
                                 <td>{{ c.product_name }}</td>
                                 <td>{{ c.quantity }}</td>

@@ -67,7 +67,7 @@
         <nav id = "navbar" class="navbar navbar-expand-lg fixed-top">
             <a class="navbar-brand" href="{% url 'index' %}"> <span><img style = "width: 30px; height: 30px;" src="{% static 'img/inv.png' %}" alt="inventory"></span> Inventario</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style = "color:brown;">Menu</span>
             </button>
         
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -123,24 +123,24 @@
                             {% csrf_token %}
                             <div class = "row ml-1 form-group">
                                 <label for="invoice" class = "mt-1 col-md-5 col-12">Invoice No.</label>
-                                <div class="col-md-6 col-12">
+                                <div class="col-md-6 col-11">
                                     <input type="text" class = "form-control" id = "invoice" name = "invoice" value = "{{ invoice }}" readonly>
                                 </div>
                             </div>
                 
                             <div class = "row ml-1 form-group">
                                 <label for="cust_name" class = "mt-1 col-md-5 col-12">Customer Name</label>
-                                <div class="col-md-6 col-12">
+                                <div class="col-md-6 col-11">
                                     <input type="text" class = "form-control" id = "cust_name" name = "cust_name" placeholder = "Enter Customer Name" required>
                                 </div>
                             </div>
                 
                             <div class = "row ml-1 form-group">
                                 <label for="cust_phone" class = "mt-1 col-md-5 col-12">Contact No.</label>
-                                <div class="col-md-2 col-2">
+                                <div class="col-md-2 col-3">
                                     <input type="text" class = "form-control" id = "cust_tel" name = "cust_tel" value = "+91" required>
                                 </div>
-                                <div class="col-md-4 col-10">
+                                <div class="col-md-4 col-8">
                                     <input type="tel" class = "form-control" id = "cust_phone" name = "cust_phone" placeholder = "Enter Customer Phone No." required>
                                 </div>
                             </div>
