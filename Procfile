@@ -1,1 +1,1 @@
-web: gunicorn inventory.wsgi
+web: sh -c 'cd ./inventory/ && exec inventory.wsgi'
