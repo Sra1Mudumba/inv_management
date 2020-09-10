@@ -8,6 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
         <title>Inventory Management</title>
@@ -65,10 +66,15 @@
                 font-weight: bold;
             }
 
+            .btn:hover {
+                color: brown;
+            }
+
             .btn {
                 background-color: blanchedalmond;
                 color: brown;
                 font-weight: bold;
+                height: 40px;
             }
         </style>
 
@@ -81,10 +87,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link" href="{% url 'index' %}"><span><i class="fa fa-home"></i></span> Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="{% url 'inventory' %}">Inventory</a>
+                    <a class="nav-link" href="{% url 'inventory' %}"><span><i class="fa fa-shopping-cart"></i></span> Inventory</a>
                     </li>
                 </ul>
             </div>
@@ -94,7 +100,8 @@
     <body id = "body">
         <div class="container">
             <div class="row">
-                <h2 id = "heading">Product Details</h2>
+                <h2 id = "heading" class = "col-9">Product Details</h2>
+                <a href="{% url 'inventory' %}" class = "btn btn-outline col-md-2 col-3 mt-4"><span><i class="fa fa-backward"></i></span> Go Back</a>
             </div>
             <hr>
             
@@ -109,15 +116,15 @@
                             <th scope = "col">Vendor Name</th>
                         </thead>
 
+                        {% for search in searches %}
                         <tbody>
-                            {% for search in searches %}
-                                <td id = "serial">{{ search.product_sr_no }}</td>
-                                <td>{{ search.product_name }}</td>
-                                <td>{{ search.quantity }}</td>
-                                <td>{{ search.price }}</td>
-                                <td>{{ search.vendor_name }}</td>
-                            {% endfor %}
+                            <td id = "serial">{{ search.product_sr_no }}</td>
+                            <td>{{ search.product_name }}</td>
+                            <td>{{ search.quantity }}</td>
+                            <td>{{ search.price }}</td>
+                            <td>{{ search.vendor_name }}</td>
                         </tbody>
+                        {% endfor %}
                     </table>
                 </div>
             </div>

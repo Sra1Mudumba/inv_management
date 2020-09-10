@@ -41,12 +41,15 @@
             <div class='header'>
                 <h1 class="title">Inventario</h1>
                 <address>4567 Main Street, Buffalo, NY 503516</address>
-                <h1>Sales Details</p>
+                <h1>Bill Details</h1>
                 <hr style = "color: #333;">
             </div>
         <div>
         
         <div class='details'>
+            <h2>Invoice Id: {{ invo.invoice_id.invoice_id }}</h2>
+            <h2>Customer Name: {{ invo.invoice_id.cust_name }}</h2>
+            <h2>Customer Phone Number: {{ invo.invoice_id.cust_phone }}</h2>
             <table border="1">
                 <thead>
                     <th scope = "col">Invoice Id.</th>
@@ -71,6 +74,11 @@
                 </tbody>
                 {% endfor %}
             </table>
+            <div class="container">
+                <div class="row">
+                    <h3 class = "ml-auto">Total Price: {{ tot }}</h3>
+                </div>
+            </div>
             <hr class='hrItem' />
         </div>
     </div>
